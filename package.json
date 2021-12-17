@@ -1,0 +1,19 @@
+{
+  "name": "movie-flix",
+  "version": "1.0.0",
+  "description": "Movie flix project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brad-Becker/movie-flix.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brad-Becker/movie-flix/issues"
+  },
+  "homepage": "https://github.com/Brad-Becker/movie-flix#readme"
+}
