@@ -1,12 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>myFlix</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
+
 <body>
-       <h2>Documentation for Welcome to my Movie Flix</h2>
+    <h1>Objective</h1>
+    <p>
+        To build the server-side component of a “movies” web application. The web
+        application will provide users with access to information about different
+        movies, directors, and genres. Users will be able to sign up, update their
+        personal information, and create a list of their favorite movies.
+    </p>
+    <h1>API Endpoints</h1>
+    <table style="width:80%">
+        <tr>
+            <th>Request</th>
+            <th>URL</th>
+            <th>HTTP Method</th>
+            <th>Request body data format</th>
+            <th>Response body data format</th>
+        </tr>
+        <tr>
+            <td>Get a list of all movies</td>
+            <td>/movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about all the movies</td>
+        </tr>
+        <tr>
+            <td>Get data about a single movie by title</td>
+            <td>/movie/[Title]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a single movie, containing a name, description, genre, and image URL:
+                <br>
+                { <br>
+                    "id": 1,
+                    "title": "Inception",
+                    "director": "Christopher Nolan",
+                    "genre": "Sci-Fi"
+                }
+            </td>
+        </tr>
+        <tr>
+            <td>Get data about a genre by name/title</td>
+            <td>/genres/[Name]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a genre, like a description</td>
+        </tr>
+        <tr>
+            <td>Get data about a director by name</td>
+            <td>/directors/[Name]</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a director, containing a bio, birth year, and death year, structured
+                like: <br>
+                 {
+                 "id": 1,
+                 "title": "Inception",
+                 "director": "Christopher Nolan",
+                 "genre": "Sci-Fi"
+                 }
+            </td>
+        </tr>
+        <tr>
+            <td>Add a user</td>
+            <td>/users/register</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the user to add, structured like: <br>
+                {
+                "id": 1,
+                "fullname": "Bob Kyle",
+                "email": "johndoe@mail.com",
+                }
+            </td>
+            <td>A JSON object holding data about the user that was added, including an ID: <br>
+                {
+                "id": 1,
+                "fullname": "Bob Kyle",
+                "email": "johndoe@mail.com",
+                } </td>
+        </tr>
+        <tr>
+            <td>Add a movie to list of favorites</td>
+            <td>/users/[Username]/favorites</td>
+            <td>POST</td>
+            <td>A JSON object holding data about the movie to add, structured like: <br>
+                { <br>
+                name : "Spirited Away", <br>
+                description : "In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro
+                (Rumi Hiiragi) and her parents (Takashi Naitô, Yasuko Sawaguchi) stumble upon a seemingly abandoned
+                amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious
+                Haku (Miyu Irino), who explains that the park is a resort for supernatural beings who need a break from
+                their time spent in the earthly realm, and that she must work there to free herself and her parents.",
+                <br>
+                genre : "Fantasy", <br>
+                imageURL : "spiritedaway.jpg" <br>
+                }
+            </td>
+            <td>A text message indicating whether the movie was successfully added
+            </td>
+        </tr>
+        <tr>
+            <td>Remove a movie from list of favorites</td>
+            <td>/users/[Username]/favorites/[Movie]</td>
+            <td>DELETE</td>
+            <td>None</td>
+            <td>A text message indicating whether the movie was successfully removed</td>
+        </tr>
+        <tr>
+            <td>Deregister a user</td>
+            <td>/users/[Username]</td>
+            <td>DELETE</td>
+            <td>None</td>
+            <td>A text message indicating whether the user was successfully removed</td>
+        </tr>
+    </table>
 </body>
+
 </html>
