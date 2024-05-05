@@ -32,75 +32,70 @@
             <th>Response body data format</th>
         </tr>
         <tr>
-            <td>Get a list of all movies</td>
-            <td>/movies</td>
-            <td>GET</td>
-            <td>None</td>
-            <td>A JSON object holding data about all the movies</td>
-        </tr>
-        <tr>
-            <td>Get data about a single movie by title</td>
-            <td>/movie/[Title]</td>
-            <td>GET</td>
-            <td>None</td>
-            <td>A JSON object holding data about a single movie, containing a name, description, genre, and image URL:
-                <br>
-                { <br>
-                    "id": 1,
-                    "title": "Inception",
-                    "director": "Christopher Nolan",
-                    "genre": "Sci-Fi"
-                }
-            </td>
-        </tr>
-        <tr>
             <td>Get data about a genre by name/title</td>
             <td>/genres/[Name]</td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding data about a genre, like a description</td>
+            <td>A JSON object holding data about a genre:
+                <br>
+                {
+                "_id": "Genre ID",
+                "name": "Genre Name",
+                "description": "Genre Description"
+                }
+            </td>
         </tr>
         <tr>
             <td>Get data about a director by name</td>
             <td>/directors/[Name]</td>
             <td>GET</td>
             <td>None</td>
-            <td>A JSON object holding data about a director, containing a bio, birth year, and death year, structured
-                like: <br>
-                 {
-                 "id": 1,
-                 "title": "Inception",
-                 "director": "Christopher Nolan",
-                 "genre": "Sci-Fi"
-                 }
+            <td>A JSON object holding data about a director:
+                <br>
+                {
+                "_id": "Director ID",
+                "name": "Director Name",
+                "bio": "Director Bio",
+                "birthYear": "Director Birth Year",
+                "deathYear": "Director Death Year"
+                }
             </td>
         </tr>
         <tr>
             <td>Add a user</td>
             <td>/users/register</td>
             <td>POST</td>
-            <td>A JSON object holding data about the user to add, structured like: <br>
+            <td>A JSON object holding data about the user to add, structured like:
+                <br>
                 {
-                "id": 1,
-                "fullname": "Bob Kyle",
-                "email": "johndoe@mail.com",
+                "username": "User Username",
+                "password": "User Password",
+                "email": "User Email",
+                "dateOfBirth": "User Date of Birth"
                 }
             </td>
-            <td>A JSON object holding data about the user that was added, including an ID: <br>
+            <td>A JSON object holding data about the user that was added, including an ID:
+                <br>
                 {
-                "id": 1,
-                "fullname": "Bob Kyle",
-                "email": "johndoe@mail.com",
-                } </td>
+                "_id": "User ID",
+                "username": "User Username",
+                "email": "User Email",
+                "dateOfBirth": "User Date of Birth",
+                "favoriteMovies": []
+                }
+            </td>
         </tr>
         <tr>
             <td>Add a movie to list of favorites</td>
             <td>/users/[Username]/favorites</td>
             <td>POST</td>
-            <td>A JSON object holding data about the movie to add, structured like: <br>
+            <td>A JSON object holding data about the movie to add, structured like:
+                <br>
+                {
+                "movieId": "Movie ID"
+                }
             </td>
-            <td>A text message indicating whether the movie was successfully added
-            </td>
+            <td>A text message indicating whether the movie was successfully added</td>
         </tr>
         <tr>
             <td>Remove a movie from list of favorites</td>
